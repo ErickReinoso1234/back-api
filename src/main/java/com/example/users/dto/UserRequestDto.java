@@ -2,71 +2,95 @@ package com.example.users.dto;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class UserRequestDto {
 
-  private String cedula;
-  private String nombre;
-  private String apellido;
-  private String correo;
-  private String password;
-  private String celular;
-  private LocalDate fechaNacimiento;
-  
-  // Getters y Setters
-public String getCedula() {
-    return cedula;
-}
+    @NotNull
+    private String cedula;
 
-public void setCedula(String cedula) {
-    this.cedula = cedula;
-}
+    @NotNull
+    @Size(min = 1, max = 50)
+    private String nombre;
 
-public String getNombre() {
-    return nombre;
-}
+    @NotNull
+    @Size(min = 1, max = 50)
+    private String apellido;
 
-public void setNombre(String nombre) {
-    this.nombre = nombre;
-}
+    @NotNull
+    @Email
+    private String correo;
 
-public String getApellido() {
-    return apellido;
-}
+    @NotNull
+    @Size(min = 6)
+    private String password;
 
-public void setApellido(String apellido) {
-    this.apellido = apellido;
-}
+    @NotNull
+    @Size(min = 10, max = 10)
+    private String celular;
 
-public String getCorreo() {
-    return correo;
-}
+    @NotNull
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate fechaNacimiento;
 
-public void setCorreo(String correo) {
-    this.correo = correo;
-}
+    // Getters y Setters
+    public String getCedula() {
+        return cedula;
+    }
 
-public String getPassword() {
-  return password;
-}
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
 
-public void setPassword(String password) {
-  this.password = password;
-}
+    public String getNombre() {
+        return nombre;
+    }
 
-public String getCelular() {
-    return celular;
-}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-public void setCelular(String celular) {
-    this.celular = celular;
-}
+    public String getApellido() {
+        return apellido;
+    }
 
-public LocalDate getFechaNacimiento() {
-    return fechaNacimiento;
-}
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
 
-public void setFechaNacimiento(LocalDate fechaNacimiento) {
-    this.fechaNacimiento = fechaNacimiento;
-}
-    // Erick
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
 }
